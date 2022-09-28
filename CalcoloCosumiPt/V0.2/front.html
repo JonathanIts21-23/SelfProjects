@@ -1,0 +1,136 @@
+<head>
+  <header>
+      <title>Calcolo consumi green</title>
+  </header>
+  <style>
+    table, th, td {
+  border: 1px solid black;
+  text-align: center;
+}
+  </style>
+</head>
+
+<h1>Calcolo consumi con soluzioni green</h1>
+<h2>Versione 0.2</h2>
+<body>
+  <div>
+    <table>
+      <tr>
+        <th>Combustibile</th>
+        <th>Unità di misura</th>
+        <th>PCI generKw</th>
+        <th>Rendimento %Generatore</th>
+        <th>Rendimento Utile Kw/h</th>
+        <th>€/lt €/smc €/Kg</th>
+        <th>Spesa 1Mw</th>
+        <th>Spesa totate</th>
+        <th>Risparmio su legna %</th>
+        <th>Risparmio su Pellet %</th>
+      </tr>
+      <tr>
+        <td>
+          <select onchange="resetCarb()" name="carburante" id="carburante">
+            <option value="">Seleziona carburante</option>
+            <option value=4>Legna</option>
+            <option value=5>Pellet</option>
+            <option value=9.6>Metano</option>
+            <option value=7.2>GPL</option>
+            <option value=11.9>Gasolio</option>
+          </select>
+        </td>
+        <td>1Kg/1Smc/1Lt</td>
+        <td id="PCIgen"></td>
+        <td><input id="rendGen" type="number"></td>
+        <td id="rendUtile"></td>
+        <td><input id="eurLtSmcKg" type="number"></td>
+        <td>1000</td>
+        <td id="spesaTot"></td>
+        <td id="rispLegna"></td>
+        <td id="rispPellet"></td>
+      </tr>
+    </table>
+    <br/>
+    <input type="button" value="CALCOLA" onclick="calculate()">
+    <br/><br/>
+  </div>
+  <div>
+    <table>
+      <tr>
+        <th>Casa 100m<sup>2</sup>:</th>
+        <th>Altezza x m<sup>3</sup>:</th>
+        <th>Secondo isolamento al m<sup>3</sup>:</th>
+        <th>Fabbisogno termico W/h m<sup>3</sup>:</th>
+        <th>In Kw/h termici:</th>
+        <th>Ore acceso:</th>
+        <th>Fabbisogno termico Kw giornaliero:</th>
+      </tr>
+      <tr>
+        <td><input id="casa" type="number"></td>
+        <td><input id="altezza" type="number"></td>
+        <td><input id="isolamento" type="number"></td>
+        <td id="fabbisognoTermicoWhm"></td>
+        <td id="KwHTermici"></td>
+        <td><input id="oreAcceso" type="number"></td>
+        <td id="fabbisognoTermicoKwGg"></td>
+      </tr>
+      <tr>
+        <th>Consumo annuo Smc:</th>
+        <th>/210 smc giornaliero:</th>
+        <th>Costo in EURO giornaliero:</th>
+        <th>Consto in EURO mensile:</th>
+        <th>Costo gas smc:</th>
+        <th>Smc consumati:</th>
+        <th>Kw resi al smc:</th>
+        <th>Fabbisogno termico Kw giornaliero:</th>
+      </tr>
+      <tr>
+        <td><input id="consAaSmc" type="number"></td>
+        <td id="210smcGg"></td>
+        <td id="CostoEuroGg"></td>
+        <td id="costoEuroMm"></td>
+        <td><input id="costoGasSmc" type="number"></td>
+        <td id="smcConstumati"></td>
+        <td id="kwResiSmc">9.6</td>
+        <td id="kwNecessariGg"></td>
+      </tr>
+      <tr>
+        <th>PDC Kw/htgg:</th>
+        <th>COP:</th>
+        <th>Consumo Kw/h giornaliero:</th>
+        <th>Consumo Kw/h mensile:</th>
+        <th>Costo al Kw/h:</th>
+        <th>Costo EURO al giorno:</th>
+        <th>Euro per sette mesi e invernale:</th>
+        <th>1€ = 15Kw/h:</th>
+        <th>smc3Kw/he=1m<sup>3</sup>:</th>
+        <th>Kw/h x 9,6:</th>
+        <th>Ore accensione:</th>
+      </tr>
+      <tr>
+        <td><input id="pdcKwHtGg" type="number"></td>
+        <td><input id="cop" type="number"></td>
+        <td id="consKwhGg"></td>
+        <td id="consKwMm"></td>
+        <td><input id="costoKwh" type="number"></td>
+        <td id="euroGg"></td>
+        <td id="eur210Inv"></td>
+        <td id="eur15Kwh"></td>
+        <td id="smc3Kwhe"></td>
+        <td id="x96"></td>
+        <td id="oreAccensione"></td>
+      </tr>
+      <tr>
+        <th>Totale smc x€ Smc:</th>
+        <th>Risparmio su metano %:</th>
+      </tr>
+      <tr>
+        <td id="totSmcEur"></td>
+        <td id="rispMet"></td>
+      </tr>
+    </table>
+    <br/>
+    <input type="button" value="CALCOLA" onclick="calculate2()">
+    <input type="button" value="RESET" onclick="resetSmc()">
+  </div>
+</body>
+<script src="back.js"></script>
