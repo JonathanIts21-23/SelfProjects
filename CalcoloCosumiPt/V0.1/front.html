@@ -1,0 +1,44 @@
+<header>
+    <title>Calcolo consumi green</title>
+</header>
+
+<h1>Calcolo consumi con soluzioni green</h1>
+<h2>Versione 0.1</h2>
+<label for="cars">Combustibile:</label>
+
+<select name="carburante" id="carburante">
+  <option value=4>Legna</option>
+  <option value=5>Pellet</option>
+  <option value=9.6>Metano</option>
+  <option value=7.2>GPL</option>
+  <option value=11.9>Gasolio</option>
+</select>
+
+<p>U. di misura: 1Kg/1Smc/1Lt</p>
+
+<label>PCIgenerKw:</label>
+<label id="PCIgen"></label>
+<br/><br/>
+
+<label>Rend % Generat:</label>
+<input id="rendGen" type="number">
+<br/><br/>
+
+<label>Rend utile Kw/h:</label>
+<label id="rendUtile"></label>
+<br/><br/>
+
+<label>€/it €/smc €/Kg:</label>
+<input id="eurItSmcKg" type="number">
+<br/><br/>
+
+<label>Spesa 1Mw:</label>
+<input id="spesaMw" type="number"><br/><br/>
+<br/><br/>
+
+<label>Spesa totale:</label>
+<label id="spesaTot"></label>
+<br/><br/>
+
+<input type="button" value="CALCOLA" onclick="calculate()">
+<script src="back.js"></script>
